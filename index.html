@@ -411,9 +411,40 @@
       .fc-grid { grid-template-columns: 1fr; }
       .header { padding: 2.5rem 1.25rem 2rem; }
     }
-  </style>
+  
+/* ─── WCAG 2.1 AA: Visible focus indicators ─── */
+:focus-visible {
+  outline: 3px solid #005fcc !important;
+  outline-offset: 2px !important;
+}
+.tab-btn:focus-visible, .nav-btn:focus-visible {
+  outline: 3px solid #005fcc !important;
+  outline-offset: 2px !important;
+}
+/* ─── Skip link ─── */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: #005fcc;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0 0 6px 6px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  z-index: 9999;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+</style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 
 <div class="header">
   <h1>Biology 1 Basics</h1>
@@ -590,7 +621,7 @@
     <div class="card">
       <h3>ATP: The Energy Currency</h3>
       <p class="explain">Cells don't burn food directly. Instead, they break food down and transfer the energy into a small molecule called <strong>ATP</strong> (adenosine triphosphate). When a cell needs energy for anything, it snaps the last phosphate off ATP, releasing energy. Think of ATP as a rechargeable battery: it gets charged up during cellular respiration and spent whenever the cell does work.</p>
-      <p class="explain" style="text-align:center;margin:0.5rem 0"><span class="f">ATP → ADP + Pᵢ + energy</span></p>
+      <p class="explain" style="text-align:center;margin:0.5rem 0"><span class="f">ATP <span aria-hidden="true">→</span> ADP + Pᵢ + energy</span></p>
     </div>
 
     <div class="card">
@@ -609,8 +640,8 @@
     <div class="card">
       <h3>Cellular Respiration: Turning Food Into Energy</h3>
       <p class="explain">This is how your cells extract energy from glucose. The overall equation:</p>
-      <p class="explain" style="text-align:center;margin:0.5rem 0"><span class="f">C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + ~30-32 ATP</span></p>
-      <p class="explain">In plain English: glucose + oxygen → carbon dioxide + water + energy. This happens in three main stages:</p>
+      <p class="explain" style="text-align:center;margin:0.5rem 0"><span class="f">C₆H₁₂O₆ + 6O₂ <span aria-hidden="true">→</span> 6CO₂ + 6H₂O + ~30-32 ATP</span></p>
+      <p class="explain">In plain English: glucose + oxygen <span aria-hidden="true">→</span> carbon dioxide + water + energy. This happens in three main stages:</p>
       <p class="explain"><strong>1. Glycolysis</strong> (in the cytoplasm): splits glucose in half. Produces 2 ATP. Does not need oxygen.</p>
       <p class="explain"><strong>2. Krebs Cycle</strong> (in the mitochondrial matrix): processes the fragments from glycolysis. Produces 2 ATP and a lot of electron carriers (NADH, FADH₂).</p>
       <p class="explain"><strong>3. Electron Transport Chain</strong> (inner mitochondrial membrane): the big payoff. Uses those electron carriers to produce about 26-28 ATP.</p>
@@ -621,7 +652,7 @@
     <div class="card">
       <h3>Photosynthesis: Turning Sunlight Into Food</h3>
       <p class="explain">This is essentially cellular respiration in reverse. Plants, algae, and some bacteria capture light energy and use it to build glucose from CO₂ and water:</p>
-      <p class="explain" style="text-align:center;margin:0.5rem 0"><span class="f">6CO₂ + 6H₂O + light → C₆H₁₂O₆ + 6O₂</span></p>
+      <p class="explain" style="text-align:center;margin:0.5rem 0"><span class="f">6CO₂ + 6H₂O + light <span aria-hidden="true">→</span> C₆H₁₂O₆ + 6O₂</span></p>
       <p class="explain">It happens in two stages inside the <strong>chloroplast</strong>:</p>
       <p class="explain"><strong>Light reactions</strong> (thylakoid membranes): capture sunlight, split water, produce ATP and NADPH, release O₂.</p>
       <p class="explain"><strong>Calvin cycle</strong> (stroma): uses the ATP and NADPH to build sugar from CO₂.</p>
@@ -664,7 +695,7 @@
     </div>
 
     <div class="card">
-      <h3>The Central Dogma: DNA → RNA → Protein</h3>
+      <h3>The Central Dogma: DNA <span aria-hidden="true">→</span> RNA <span aria-hidden="true">→</span> Protein</h3>
       <p class="explain">This is the fundamental flow of genetic information. It has two main steps:</p>
       <p class="explain"><strong>Step 1: Transcription</strong> (in the nucleus). The cell copies a gene's DNA sequence into a messenger RNA (mRNA) molecule. Think: "transcription" = "rewriting in a new format," like transcribing a lecture into notes.</p>
       <p class="explain"><strong>Step 2: Translation</strong> (at ribosomes in the cytoplasm). The ribosome reads the mRNA three letters at a time (each group of three is called a <strong>codon</strong>). Each codon specifies one amino acid. Transfer RNA (tRNA) brings the correct amino acid, and the ribosome links them together into a protein. Think: "translation" = "converting one language (nucleotides) into another (amino acids)."</p>
@@ -828,7 +859,7 @@
     <div class="card">
       <h3>Taxonomic Classification</h3>
       <p class="explain">All living things are organized into a nested hierarchy:</p>
-      <p class="explain" style="text-align:center"><strong>Domain → Kingdom → Phylum → Class → Order → Family → Genus → Species</strong></p>
+      <p class="explain" style="text-align:center"><strong>Domain <span aria-hidden="true">→</span> Kingdom <span aria-hidden="true">→</span> Phylum <span aria-hidden="true">→</span> Class <span aria-hidden="true">→</span> Order <span aria-hidden="true">→</span> Family <span aria-hidden="true">→</span> Genus <span aria-hidden="true">→</span> Species</strong></p>
       <div class="mnemonic">"Dear King Philip Came Over For Good Spaghetti"</div>
       <p class="explain" style="margin-top:0.5rem"><strong>Three Domains</strong>: Bacteria, Archaea, Eukarya. Species are named with two-part Latin names: <em>Homo sapiens</em> (genus capitalized, species lowercase, italicized).</p>
     </div>
@@ -892,7 +923,7 @@
     <div class="card">
       <h3>Blood and the Heart</h3>
       <p class="explain">The heart is a four-chambered pump. Blood flows in a loop:</p>
-      <p class="explain" style="text-align:center"><span class="f">Body → Vena cava → R atrium → R ventricle → Lungs → L atrium → L ventricle → Aorta → Body</span></p>
+      <p class="explain" style="text-align:center"><span class="f">Body <span aria-hidden="true">→</span> Vena cava <span aria-hidden="true">→</span> R atrium <span aria-hidden="true">→</span> R ventricle <span aria-hidden="true">→</span> Lungs <span aria-hidden="true">→</span> L atrium <span aria-hidden="true">→</span> L ventricle <span aria-hidden="true">→</span> Aorta <span aria-hidden="true">→</span> Body</span></p>
       <p class="explain">The right side pumps blood to the lungs (to pick up oxygen). The left side pumps oxygenated blood to the entire body.</p>
       <p class="explain"><strong>Universal donor</strong>: O- (no antigens). <strong>Universal recipient</strong>: AB+ (no antibodies against A, B, or Rh).</p>
       <div class="tip">Normal resting heart rate: 60-100 bpm. Normal blood pressure: about 120/80 mmHg.</div>
@@ -923,7 +954,7 @@
 
     <div class="card">
       <h3>The Scientific Method</h3>
-      <p class="explain">Science follows a cycle: <strong>Observation → Question → Hypothesis → Experiment → Analysis → Conclusion</strong>.</p>
+      <p class="explain">Science follows a cycle: <strong>Observation <span aria-hidden="true">→</span> Question <span aria-hidden="true">→</span> Hypothesis <span aria-hidden="true">→</span> Experiment <span aria-hidden="true">→</span> Analysis <span aria-hidden="true">→</span> Conclusion</strong>.</p>
       <p class="explain"><strong>Independent variable</strong>: the one thing you deliberately change.</p>
       <p class="explain"><strong>Dependent variable</strong>: the thing you measure (it "depends" on your change).</p>
       <p class="explain"><strong>Control group</strong>: gets no treatment, so you have a baseline to compare against.</p>
@@ -1046,8 +1077,8 @@ function checkAll(){
     q.o.forEach((_,j)=>{document.getElementById('l'+i+'-'+j).className=''});
     if(sel){
       const v=+sel.value;
-      if(v===q.a){right++;document.getElementById('l'+i+'-'+v).className='correct';fb.className='q-feedback visible fb-right';fb.textContent='✓ '+q.e}
-      else{document.getElementById('l'+i+'-'+v).className='wrong';document.getElementById('l'+i+'-'+q.a).className='show-correct';fb.className='q-feedback visible fb-wrong';fb.textContent='✗ '+q.e}
+      if(v===q.a){right++;document.getElementById('l'+i+'-'+v).className='correct';fb.className='q-feedback visible fb-right';fb.textContent='<span aria-hidden="true">✓</span> '+q.e}
+      else{document.getElementById('l'+i+'-'+v).className='wrong';document.getElementById('l'+i+'-'+q.a).className='show-correct';fb.className='q-feedback visible fb-wrong';fb.textContent='<span aria-hidden="true">✗</span> '+q.e}
     }else{document.getElementById('l'+i+'-'+q.a).className='show-correct';fb.className='q-feedback visible fb-wrong';fb.textContent='No answer selected. '+q.e}
   });
   const sb=document.getElementById('score-box');const pct=Math.round(right/Q.length*100);
@@ -1078,14 +1109,14 @@ const FC=[
   {q:"Fluid mosaic model?",a:"Cell membrane = phospholipid bilayer with embedded proteins.",c:"Transport"},
   {q:"Cell in hypotonic solution?",a:"Swells (water enters). Animal cells may burst (lyse).",c:"Transport"},
   {q:"Cell in hypertonic solution?",a:"Shrivels (water leaves). Animal cells crenate.",c:"Transport"},
-  {q:"Passive vs. active transport?",a:"Passive: no energy, high→low. Active: ATP, low→high (against gradient).",c:"Transport"},
+  {q:"Passive vs. active transport?",a:"Passive: no energy, high<span aria-hidden="true">→</span>low. Active: ATP, low<span aria-hidden="true">→</span>high (against gradient).",c:"Transport"},
   {q:"What do enzymes do?",a:"Lower activation energy to speed up reactions. Don't change ΔG.",c:"Energy"},
-  {q:"Cellular respiration equation?",a:"C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + ~30-32 ATP.",c:"Energy"},
-  {q:"Photosynthesis equation?",a:"6CO₂ + 6H₂O + light → C₆H₁₂O₆ + 6O₂.",c:"Energy"},
+  {q:"Cellular respiration equation?",a:"C₆H₁₂O₆ + 6O₂ <span aria-hidden="true">→</span> 6CO₂ + 6H₂O + ~30-32 ATP.",c:"Energy"},
+  {q:"Photosynthesis equation?",a:"6CO₂ + 6H₂O + light <span aria-hidden="true">→</span> C₆H₁₂O₆ + 6O₂.",c:"Energy"},
   {q:"Net ATP from glycolysis?",a:"2 ATP per glucose.",c:"Energy"},
   {q:"Where does the Krebs cycle happen?",a:"Mitochondrial matrix.",c:"Energy"},
   {q:"DNA base pairing rules?",a:"A-T (2 H-bonds), G-C (3 H-bonds).",c:"DNA"},
-  {q:"Central Dogma?",a:"DNA → (transcription) → mRNA → (translation) → Protein.",c:"DNA"},
+  {q:"Central Dogma?",a:"DNA <span aria-hidden="true">→</span> (transcription) <span aria-hidden="true">→</span> mRNA <span aria-hidden="true">→</span> (translation) <span aria-hidden="true">→</span> Protein.",c:"DNA"},
   {q:"Start codon? Stop codons?",a:"Start: AUG. Stop: UAA, UAG, UGA.",c:"DNA"},
   {q:"How many codons? Amino acids?",a:"64 codons code for 20 amino acids + stop.",c:"DNA"},
   {q:"Semiconservative replication?",a:"Each new DNA molecule has one old strand and one new strand.",c:"DNA"},
@@ -1104,7 +1135,7 @@ const FC=[
   {q:"The 10% rule?",a:"Only ~10% of energy passes to the next trophic level. Rest lost as heat.",c:"Ecology"},
   {q:"Primary vs. secondary succession?",a:"Primary: bare rock, centuries. Secondary: soil exists, decades.",c:"Ecology"},
   {q:"Mutualism vs. commensalism vs. parasitism?",a:"+/+ both benefit. +/0 one benefits. +/- one benefits, other harmed.",c:"Ecology"},
-  {q:"Blood flow through the heart?",a:"Vena cava → R atrium → R ventricle → Lungs → L atrium → L ventricle → Aorta.",c:"Human Body"},
+  {q:"Blood flow through the heart?",a:"Vena cava <span aria-hidden="true">→</span> R atrium <span aria-hidden="true">→</span> R ventricle <span aria-hidden="true">→</span> Lungs <span aria-hidden="true">→</span> L atrium <span aria-hidden="true">→</span> L ventricle <span aria-hidden="true">→</span> Aorta.",c:"Human Body"},
   {q:"Insulin vs. glucagon?",a:"Insulin lowers blood sugar. Glucagon raises it. Both from pancreas.",c:"Human Body"},
   {q:"Universal blood donor / recipient?",a:"Donor: O-. Recipient: AB+.",c:"Human Body"},
   {q:"Independent vs. dependent variable?",a:"Independent: what you change. Dependent: what you measure.",c:"Lab"},
@@ -1119,7 +1150,7 @@ function buildCards(){const box=document.getElementById('fc-box');const list=act
 document.addEventListener('DOMContentLoaded',()=>{buildQuiz();buildFilters();buildCards()});
 </script>
   <div style="max-width: 800px; margin: 40px auto; padding: 20px 30px; background: #fff8e1; border-left: 4px solid #f9a825; border-radius: 8px; font-size: 14px; line-height: 1.6; color: #555;">
-  <div style="font-weight: bold; font-size: 15px; margin-bottom: 10px;">⚠️ Important Notice</div>
+  <div style="font-weight: bold; font-size: 15px; margin-bottom: 10px;"><span aria-hidden="true">⚠️</span> Important Notice</div>
   <p style="margin: 0 0 10px 0;">These study resources are provided free of charge for educational purposes only. They are intended as supplemental study aids and should not be used as a substitute for your course textbooks, lecture materials, or the guidance of your instructors.</p>
   <p style="margin: 0 0 10px 0;">While every effort has been made to ensure accuracy, this content may contain errors, omissions, or information that is out of date. Science is constantly evolving, and material that was accurate at the time of writing may no longer reflect current understanding. Always verify important facts, formulas, and concepts against your official course materials.</p>
   <p style="margin: 0 0 10px 0;">No guarantees are made regarding the completeness, accuracy, or reliability of any information presented on these sites. Use at your own discretion. If you spot an error, we appreciate you letting us know so it can be corrected.</p>
